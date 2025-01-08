@@ -1,4 +1,5 @@
-import './assets/main.css'
+import './assets/main.css';
+import store from './store/store';
 
 // import { createApp } from 'vue'
 
@@ -17,6 +18,7 @@ app.component('teste' , {
 
 
 app.use(router)
+app.use(store)
 
 app.mount('#app')
 

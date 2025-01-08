@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+// import HomeComputedView from '../views/HomeComputedView.vue'
+// import HomeOptionView from '../views/HomeOptionView.vue'
 // import ProductsView from '../views/ProductsView.vue'
 
 const router = createRouter({
@@ -7,8 +8,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
+      name: 'homeOptionView',
+      component: () => import('../views/HomeOptionView.vue'),
+    },
+    {
+      path: '/homecomputed',
+      name: 'homeComputedView',
+      component: () => import('../views/HomeCompositionView.vue'),
     },
     {
       path: '/products',
@@ -24,6 +30,29 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
     },
+    {
+      path: '/user/createOptionApi',
+      name: 'user-createOptionApi',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/userCreateOptionApiView.vue'),
+    },
+    
+    {
+      path: '/user/createCompositionApi',
+      name: 'user-createCompositionApi',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/userCreateCompositionApiView.vue'),
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: () => import('../views/ProductsView.vue'),
+    },
+    
   ],
 })
 
